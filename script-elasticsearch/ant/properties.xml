@@ -1,0 +1,14 @@
+<!-- 
+* Author: Tri H. Nguyen
+-->
+<project name="properties" basedir="..">
+  <property name="deploy.app.name" value="script-es"/>
+
+  <property name="bin" value="bin"/>
+  <property name="docs" value="docs"/>
+  <property name="dist" value="dist"/>
+  <property name="config" value="config"/>
+  <property name="deploy" value="deploy"/>
+  <property name="scripts" value="scripts"/>
+</project>
+

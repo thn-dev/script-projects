@@ -1,0 +1,16 @@
+<!--
+* Author: Tri H. Nguyen
+-->
+<project name="script-elasticsearch" default="clean" basedir=".">
+  <property environment="env"/>
+  <property file="build.properties" />
+  <property file="ant/${target.deployment}/build_${target.name}.properties" />
+
+  <import file="ant/properties.xml" />
+  <import file="ant/utils-targets.xml" />
+  <import file="ant/es-utils-targets.xml" />
+  <import file="ant/default-targets.xml" />
+
+  <import file="ant/es-zip-targets.xml" />
+  <import file="ant/es-rpm-targets.xml" />
+</project>

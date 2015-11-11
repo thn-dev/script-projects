@@ -1,0 +1,111 @@
+<!--
+* Author: Tri H. Nguyen
+-->
+<project name="es-zip" basedir="..">
+  <property name="bin.zip" value="${bin}/zip"/>
+  <property name="bin.zip.sys" value="${bin.zip}/sys"/>
+
+  <property name="config.zip" value="${config}/zip"/>
+  
+  <property name="dist.module" value="${dist}/${target.name}"/>
+  <property name="dist.module.bin" value="${dist.module}/bin"/>
+  <property name="dist.module.config" value="${dist.module}/config"/>
+
+  <property name="deploy.module" value="${deploy.app.name}-${sys.app-version}_${target.name}"/>
+  <property name="deploy.module.file" value="${deploy.module}.zip"/>
+  
+  <!-- target: es-zip.clean.dist -->
+  <target name="es-zip.clean.dist" description="remove distribution">
+    <delete dir="${dist.module}"/>
+  </target>
+
+  <!-- target: deploy.es-zip -->
+  <target name="es-zip.deploy" depends="es-zip.dist" description="create for deployment">
+    <zip destfile="${deploy}/${deploy.module.file}">
+      <zipfileset dir="${dist.module}" prefix="${deploy.module}"/>
+    </zip>
+  </target>
+
+  <!-- target: dist.es-zip -->
+  <target name="es-zip.dist" description="create for distribution">
+    <copy todir="${dist.module.bin}">
+      <fileset dir="${bin.zip}">
+        <exclude name="sys/setup-es-template.sh"/>
+      </fileset>
+    </copy>
+
+    <copy todir="${dist.module.config}">
+      <fileset dir="${config}">
+        <exclude name="zip/"/>
+        <exclude name="rpm/"/>
+      </fileset>
+    </copy>
+
+    <copy todir="${dist.module}/scripts">
+      <fileset dir="${scripts}"/>
+    </copy>
+
+    <antcall target="update.es-zip.bin"/>
+    <antcall target="update.es-zip.config"/>
+
+    <antcall target="update.dir-perm">
+      <param name="dir.perm" value="755"/>
+      <param name="dir.home" value="${dist.module.bin}"/>
+    </antcall>
+  </target>
+
+  <!-- target: update.es-zip.bin -->
+  <target name="update.es-zip.bin">
+    <antcall target="update.es-scripts">
+      <param name="script.file" value="${dist.module.bin}/${setenv-file}"/>
+    </antcall>
+
+    <antcall target="update.es-config">
+      <param name="conf.file" value="${dist.module.bin}/${startup-file}"/>
+    </antcall>
+
+    <antcall target="update.es-scripts.setup">
+      <param name="input.file" value="${dist.module.bin}/sys/${system.setup-file}"/>
+    </antcall>
+
+    <!-- create and update *-data.sh -->
+    <copy file="${bin.zip.sys}/${setup-file.template}" tofile="${dist.module.bin}/sys/${data.setup-file}"/>
+    <antcall target="update.es-scripts.data">
+      <param name="input.file" value="${dist.module.bin}/sys/${data.setup-file}"/>
+    </antcall>
+
+    <!-- create and update *-master.sh -->
+    <copy file="${bin.zip.sys}/${setup-file.template}" tofile="${dist.module.bin}/sys/${master.setup-file}"/>
+    <antcall target="update.es-scripts.master">
+      <param name="input.file" value="${dist.module.bin}/sys/${master.setup-file}"/>
+    </antcall>
+
+    <!-- create and update *-standalone.sh -->
+    <copy file="${bin.zip.sys}/${setup-file.template}" tofile="${dist.module.bin}/sys/${standalone.setup-file}"/>
+    <antcall target="update.es-scripts.standalone">
+      <param name="input.file" value="${dist.module.bin}/sys/${standalone.setup-file}"/>
+    </antcall>
+  </target>
+
+  <!-- target: update.es-zip.config -->
+  <target name="update.es-zip.config">
+    <!-- create and update data node configuration -->
+    <copy file="${config.zip}/${config-file.template}" tofile="${dist.module.config}/${data.config-file}"/>
+    <antcall target="update.es-config.data">
+      <param name="yml.file" value="${dist.module.config}/${data.config-file}"/>
+    </antcall>
+
+    <!-- create and update master node configuration -->
+    <copy file="${config.zip}/${config-file.template}" tofile="${dist.module.config}/${master.config-file}"/>
+    <antcall target="update.es-config.master">
+      <param name="yml.file" value="${dist.module.config}/${master.config-file}"/>
+    </antcall>
+
+    <!-- create and update standalone node configuration -->
+    <copy file="${config.zip}/${config-file.template}" tofile="${dist.module.config}/${standalone.config-file}"/>
+    <antcall target="update.es-config.standalone">
+      <param name="yml.file" value="${dist.module.config}/${standalone.config-file}"/>
+    </antcall>
+
+  </target>
+</project>

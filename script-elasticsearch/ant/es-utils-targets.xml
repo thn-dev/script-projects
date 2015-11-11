@@ -1,0 +1,154 @@
+<!-- 
+* Author: Tri H. Nguyen
+-->
+<project name="es-utils-targets" basedir="..">
+  <!-- target: update.es-scripts.setup -->
+  <target name="update.es-scripts.setup">
+    <antcall target="update.es-scripts">
+      <param name="script.file" value="${input.file}"/>
+    </antcall>
+
+    <antcall target="update.es-config">
+      <param name="conf.file" value="${input.file}"/>
+    </antcall>
+  </target>
+
+  <!-- target: update.es-scripts.startup -->
+  <target name="update.es-scripts.startup">
+    <antcall target="update.es-scripts">
+      <param name="script.file" value="${input.file}"/>
+    </antcall>
+
+    <antcall target="update.es-config">
+      <param name="conf.file" value="${input.file}"/>
+    </antcall>
+  </target>
+
+  <!-- target: update.es-scripts.data -->
+  <target name="update.es-scripts.data">
+    <replace file="${input.file}">
+      <replacefilter token="@es.config-file.template@" value="${data.config-file}"/>
+      <replacefilter token="@es.config-file@" value="${config-file}"/>
+    </replace>
+
+    <antcall target="update.es-config">
+      <param name="conf.file" value="${input.file}"/>
+    </antcall>
+  </target>
+
+  <!-- target: update.es-scripts.master -->
+  <target name="update.es-scripts.master">
+    <replace file="${input.file}">
+      <replacefilter token="@es.config-file.template@" value="${master.config-file}"/>
+      <replacefilter token="@es.config-file@" value="${config-file}"/>
+    </replace>
+
+    <antcall target="update.es-config">
+      <param name="conf.file" value="${input.file}"/>
+    </antcall>
+  </target>
+
+  <!-- target: update.es-scripts.standalone -->
+  <target name="update.es-scripts.standalone">
+    <replace file="${input.file}">
+      <replacefilter token="@es.config-file.template@" value="${standalone.config-file}"/>
+      <replacefilter token="@es.config-file@" value="${config-file}"/>
+    </replace>
+
+    <antcall target="update.es-config">
+      <param name="conf.file" value="${input.file}"/>
+    </antcall>
+  </target>
+
+  <!-- target: update.es-scripts -->
+  <target name="update.es-scripts">
+    <replace file="${script.file}">
+      <replacefilter token="@app.home@" value="${sys.app-home}"/>
+      <replacefilter token="@app.data@" value="${sys.app-data}"/>
+      <replacefilter token="@java.home@" value="${sys.java-home}"/>
+
+      <replacefilter token="@user.name@" value="${sys.user-name}"/>
+      <replacefilter token="@user.home@" value="${sys.user-home}"/>
+      <replacefilter token="@group.name@" value="${sys.group-name}"/>
+    </replace>
+    <echo>Updating file: ${script.file}</echo> 
+  </target>
+
+  <!-- target: update.es-config.data -->
+  <target name="update.es-config.data">
+    <replace file="${yml.file}">
+      <replacefilter token="@es.node.data@" value="${es.data.node-data}"/>
+      <replacefilter token="@es.node.master@" value="${es.data.node-master}"/>
+    </replace>
+
+    <antcall target="update.es-config">
+      <param name="conf.file" value="${yml.file}"/>
+    </antcall>
+  </target>
+
+  <!-- target: update.es-config.master -->
+  <target name="update.es-config.master">
+    <replace file="${yml.file}">
+      <replacefilter token="@es.node.data@" value="${es.master.node-data}"/>
+      <replacefilter token="@es.node.master@" value="${es.master.node-master}"/>
+    </replace>
+
+    <antcall target="update.es-config">
+      <param name="conf.file" value="${yml.file}"/>
+    </antcall>
+  </target>
+
+  <!-- target: update.es-config.standalone -->
+  <target name="update.es-config.standalone">
+    <replace file="${yml.file}">
+      <replacefilter token="@es.node.data@" value="${es.standalone.node-data}"/>
+      <replacefilter token="@es.node.master@" value="${es.standalone.node-master}"/>
+    </replace>
+
+    <antcall target="update.es-config">
+      <param name="conf.file" value="${yml.file}"/>
+    </antcall>
+  </target>
+
+  <!-- target: update.es-config -->
+  <target name="update.es-config">
+    <replace file="${conf.file}">
+      <replacefilter token="@es.cluster-name@" value="${es.cluster-name}"/>
+      <replacefilter token="@es.index-shards@" value="${es.index-shards}"/>
+      <replacefilter token="@es.index-replicas@" value="${es.index-replicas}"/>
+      
+      <replacefilter token="@es.http.enabled@" value="${es.http.enabled}"/>
+      <replacefilter token="@es.http.port@" value="${es.http.port}"/>
+      <replacefilter token="@es.http.cors.enabled@" value="${es.http.cors.enabled}"/>
+      <replacefilter token="@es.http.cors.allow-origin@" value="${es.http.cors.allow-origin}"/>
+
+      <replacefilter token="@es.transport.tcp.port@" value="${es.transport.tcp.port}"/>
+
+      <replacefilter token="@es.sw@" value="${es.sw}"/>
+      <replacefilter token="@es.home@" value="${es.home}"/>
+      <replacefilter token="@es.prog@" value="${es.prog}"/>
+
+      <replacefilter token="@es.env-file@" value="${es.env-file}"/>
+      <replacefilter token="@es.setenv-file@" value="${setenv-file}"/>
+
+      <replacefilter token="@startup-file@" value="${startup-file}"/>
+      <replacefilter token="@es.startup-file@" value="${es.startup-file}"/>
+
+      <replacefilter token="@es.heap-size@" value="${es.heap-size}"/>
+      <replacefilter token="@es.bootstrap-mlockall@" value="${es.bootstrap-mlockall}"/>
+
+      <replacefilter token="@es.path-pid@" value="${es.path-pid}"/>
+      <replacefilter token="@es.path-data@" value="${es.path-data}"/>
+      <replacefilter token="@es.path-logs@" value="${es.path-logs}"/>
+      <replacefilter token="@es.path-config@" value="${es.path-config}"/>
+      <replacefilter token="@es.path-plugins@" value="${es.path-plugins}"/>
+      <replacefilter token="@es.path-startup@" value="${es.path-startup}"/>
+
+      <!-- zen discovery -->
+      <replacefilter token="@es.discovery.zen.ping.unicast.hosts@" value="${es.discovery.zen.ping.unicast.hosts}"/>
+      <replacefilter token="@es.discovery.zen.minimum_master_nodes@" value="${es.discovery.zen.minimum_master_nodes}"/>
+      <replacefilter token="@es.discovery.zen.ping.multicast.enabled@" value="${es.discovery.zen.ping.multicast.enabled}"/>
+    </replace>
+    <echo>Updating file: ${conf.file}</echo> 
+  </target>
+</project>

@@ -1,0 +1,50 @@
+<!-- 
+* Author: Tri H. Nguyen
+-->
+<project name="utils-targets" basedir="..">
+
+  <!-- target: update.dir-perm -->
+  <target name="update.dir-perm">
+    <chmod perm="${dir.perm}">
+      <fileset dir="${dir.home}">
+        <include name="**/*.sh"/>
+      </fileset>
+    </chmod>
+    
+    <echo>Updating dir: ${dir.home}</echo> 
+  </target>
+
+  <!-- target: detect-os
+  * https://github.com/bszcz/java/blob/master/ant/detect-os.xml
+  -->
+  <target name="detect-os">
+    <condition property="isWindows">
+      <os family="windows"/>
+    </condition>
+
+    <condition property="isUnix">
+      <os family="unix"/>
+    </condition>
+
+    <condition property="isMac">
+      <os family="mac"/>
+    </condition>
+
+    <echo>Detecting operating system.</echo>
+  </target>
+
+  <!--
+  <target name="configure-unix" depends="detect-os" if="isUnix">
+    <echo>Configuring Unix build.</echo>
+  </target>
+
+  <target name="configure-windows" depends="detect-os" if="isWindows">
+    <echo>Configuring Windows build.</echo>
+  </target>
+
+  <target name="build" depends="configure-unix, configure-windows">
+    <echo>Building.</echo>
+  </target>
+  -->
+
+</project>

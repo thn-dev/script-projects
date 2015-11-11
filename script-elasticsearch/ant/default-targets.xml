@@ -1,0 +1,26 @@
+<!-- 
+* Author: Tri H. Nguyen
+-->
+<project name="default-targets" basedir="..">
+  <!-- init target -->
+  <target name="init">
+    <mkdir dir="${dist}"/>
+    <mkdir dir="${deploy}"/>
+  </target>
+  
+  <!-- clean target -->
+  <target name="clean" description="Remove unused directories">
+    <antcall target="clean.dist"/>
+    <antcall target="clean.deploy"/>
+  </target>
+
+  <!-- clean.dist target -->
+  <target name="clean.dist">
+    <delete dir="${dist}"/>
+  </target>
+
+  <!-- clean.deploy target -->
+  <target name="clean.deploy">
+    <delete dir="${deploy}"/>
+  </target>
+</project>
