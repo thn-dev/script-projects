@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>mapred.job.tracker</name>
+        <value>localhost:9001</value>
+    </property>
+
+    <property>
+        <name>mapred.system.dir</name>
+        <value>/tmp/mapred/system</value>
+    </property>
+
+    <property>
+        <name>mapred.local.dir</name>
+        <value>/tmp/mapred/local</value>
+    </property>
+
+    <property>
+        <name>mapred.temp.dir</name>
+        <value>/tmp/mapred/tmp</value>
+    </property>
+
+    <property>
+        <name>mapred.map.tasks</name>
+        <value>2</value>
+        <description>default: 2</description>
+    </property>
+
+    <property>
+        <name>mapred.tasktracker.map.tasks.maximum</name>
+        <value>2</value>
+        <description>default: 2</description>
+    </property>
+
+    <property>
+        <name>mapred.reduce.tasks</name>
+        <value>2</value>
+        <description>default: 2</description>
+    </property>
+
+    <property>
+        <name>mapred.tasktracker.reduce.tasks.maximum</name>
+        <value>2</value>
+        <description>default: 2</description>
+    </property>
+</configuration>
