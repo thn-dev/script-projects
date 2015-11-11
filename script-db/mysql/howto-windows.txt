@@ -1,0 +1,63 @@
+#-------------------------------------------------------------------------------
+# How to set up and use MYSQL database in Windows
+#-------------------------------------------------------------------------------
+
+# assumptions
+- MYSQL database server is installed at c:\database\mysql
+  If not, adjust the database path in dbmysql.cmd
+
+# start
+Launch the DOS windows or console window, at the prompt:
+
+# set up environmental variables and system path for mysql
+dbmysql.cmd <enter>
+
+# install mysql as a windows service
+# for windows 7, launch the console as admin first
+dbmysql.cmd service.install
+
+# uninstall mysql windows service
+dbmysql.cmd service.uninstall
+
+# start mysql windows service
+dbmysql.cmd service.start
+
+# stop mysql windows service
+dbmysql.cmd service.stop
+
+#-------------------------------------------------------------------------------
+# local admin account
+#-------------------------------------------------------------------------------
+
+# create admin account
+mysql -uroot < mysql-sys-admin_create.sql
+
+# remove admin account
+mysql -uroot < mysql-sys-admin_drop.sql
+
+#-------------------------------------------------------------------------------
+# dbtest database
+#-------------------------------------------------------------------------------
+
+# create dbtest database
+mysql -uroot < mysql-sys-test-db_create.sql
+
+# drop dbtest database
+mysql -uroot < mysql-sys-test-db_drop.sql
+
+# create test account
+mysql -uroot < mysql-sys-test_create.sql
+
+# remove test account
+mysql -uroot < mysql-sys-test_drop.sql
+
+# create database schema
+mysql -udbtest -ptest < ddl_create.sql
+
+# load data into the database
+mysql -udbtest -ptest < populate.sql
+
+# drop database schema
+mysql -udbtest -ptest < ddl_drop.sql
+
+
