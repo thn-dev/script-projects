@@ -1,0 +1,20 @@
+set ruler
+
+set tabpstop=4
+set softtabpstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
+colorscheme elflord
+:highlight Normal ctermfg=grey ctermbg=black
+
+" turn on line number
+set number
+set numberwidth=5
+
+" turn on <F2> for pasting
+nnoremap <F2> :set invpast paste?<CR>
+set pasttoggle=<F2>
+
+set showmode
