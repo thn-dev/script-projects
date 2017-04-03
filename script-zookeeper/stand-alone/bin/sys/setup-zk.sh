@@ -4,7 +4,7 @@ CWD=$(cd "$(dirname "$0")" && pwd)
 . $CWD/../setenv.sh
 
 # zookeeper related settings
-ZK_ORG=$APP_HOME/zookeeper-3.4.6
+ZK_ORG=$APP_HOME/zookeeper-3.4.9
 
 # setup application location
 if [ -d "$ZK_ORG" ];
