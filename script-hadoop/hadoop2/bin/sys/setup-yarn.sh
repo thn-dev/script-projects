@@ -5,7 +5,7 @@ CWD=$(cd "$(dirname "$0")" && pwd)
 . $CWD/../setenv.sh
 
 # original path to Hadoop package
-HADOOP_ORG=$APP_HOME/hadoop-2.7.2
+HADOOP_ORG=$APP_HOME/hadoop-2.7.3
 
 if [ -d "$HADOOP_ORG" ];
 then
