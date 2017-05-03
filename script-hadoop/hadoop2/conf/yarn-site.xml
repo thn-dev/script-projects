@@ -1,18 +1,17 @@
 <?xml version="1.0"?>
 <configuration>
-    <!-- ResourceManager -->
+  <!-- ResourceManager -->
 
-    <!-- NodeManager -->
-    <property>
-        <name>yarn.nodemanager.log-dirs</name>
-        <value>/data/yarn/logs</value>
-    </property>
+  <!-- NodeManager -->
+  <property>
+    <name>yarn.nodemanager.log-dirs</name>
+    <value>/data/yarn/logs</value>
+  </property>
 
-    <property>
-        <name>yarn.nodemanager.aux-services</name>
-        <value>mapreduce_shuffle</value>
-    </property>
+  <property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+  </property>
 
-    <!-- History Server -->
-    
+  <!-- History Server -->
 </configuration>
