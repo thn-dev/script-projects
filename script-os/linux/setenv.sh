@@ -1,13 +1,20 @@
 #!/bin/bash
 
-CLASSPATH=.
-export CLASSPATH
+export CLASSPATH=.
+export JAVA_HOME=/opt/java
 
-JAVA_HOME=/opt/java
-export JAVA_HOME
+export ANT_HOME=/opt/ant
+export MVN_HOME=/opt/maven
 
-ANT_HOME=/opt/ant
-export ANT_HOME
+export GRADLE_HOME=/opt/gradle
 
-export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$PATH
+# https://golang.org/doc/install/source#environment
+# GOOS
+# GOARCH
+
+export GOROOT=/opt/go
+export GOBIN=$GOROOT/bin
+export GOPATH=$HOME/dev.go
+
+export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$MVN_HOME/bin:$GOROOT/bin:$PATH
 
