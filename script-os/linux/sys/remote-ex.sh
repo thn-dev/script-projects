@@ -10,9 +10,8 @@ function remote_ex() {
       # execute command at a given host
 
       SERVER_NAME=$HOSTS
-      echo ""
-      echo "connecting to $USER_NAME@$SERVER_NAME"
-      ssh -n $USER_NAME@$SERVER_NAME "$REMOTE_CMD"
+      echo -e "connecting to $USER_NAME@$SERVER_NAME"
+      ssh -n -tt $USER_NAME@$SERVER_NAME "$REMOTE_CMD"
       ;;
 
     "-m")
@@ -21,9 +20,8 @@ function remote_ex() {
       while read line
       do
         SERVER_NAME=$line
-        echo ""
-        echo "connecting to $USER_NAME@$SERVER_NAME"
-        ssh -n $USER_NAME@$SERVER_NAME "$REMOTE_CMD"
+        echo -e "connecting to $USER_NAME@$SERVER_NAME"
+        ssh -n -tt $USER_NAME@$SERVER_NAME "$REMOTE_CMD"
       done < $HOSTS
       ;;
 
