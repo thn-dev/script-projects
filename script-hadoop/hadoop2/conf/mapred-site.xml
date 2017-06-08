@@ -8,6 +8,7 @@
     <value>yarn</value>
   </property>
 
+  <!-- Map -->
   <property>
     <name>mapreduce.map.memory.mb</name>
     <value>1536</value>
@@ -25,17 +26,7 @@
 
   <property>
     <name>mmapreduce.reduce.java.opts</name>
-    <value>-Xmx2560M</value>
-  </property>
-
-  <property>
-    <name>mapreduce.task.io.sort.mb</name>
-    <value>512</value>
-  </property>
-
-  <property>
-    <name>mapreduce.task.io.sort.factor</name>
-    <value>100</value>
+    <value>-Xmx1024M</value>
   </property>
 
   <property>
@@ -43,7 +34,18 @@
     <value>50</value>
   </property>
 
-  <!-- MapReduce JobHistory Server -->
+  <!-- Task -->
+  <property>
+    <name>mapreduce.task.io.sort.mb</name>
+    <value>128</value>
+  </property>
+
+  <property>
+    <name>mapreduce.task.io.sort.factor</name>
+    <value>10</value>
+  </property>
+
+  <!-- MapReduce Job History Server -->
   <property>
     <name>mapreduce.jobhistory.address</name>
     <value>localhost:10020</value>
@@ -52,5 +54,47 @@
   <property>
     <name>mapreduce.jobhistory.webapp.address</name>
     <value>localhost:19888</value>
+  </property>
+
+  <!-- Cluster -->
+  <property>
+    <name>mapreduce.cluster.local.dir</name>
+    <value>/data/yarn/mapred/local</value>
+  </property>
+
+  <property>
+    <name>mapreduce.cluster.temp.dir</name>
+    <value>/data/yarn/mapred/temp</value>
+  </property>
+
+  <property>
+    <name>mapreduce.input.fileinputformat.split.minsize</name>
+    <value>0</value>
+  </property>
+
+  <property>
+    <name>mapreduce.tasktracker.map.tasks.maximum</name>
+    <value>4</value>
+  </property>
+
+  <property>
+    <name>mapreduce.tasktracker.reduce.tasks.maximum</name>
+    <value>2</value>
+  </property>
+
+  <property>
+    <name>mapreduce.map.failures.maxpercent</name>
+    <value>50</value>
+  </property>
+
+  <property>
+    <name>mapreduce.reduce.failures.maxpercent</name>
+    <value>30</value>
+  </property>
+
+  <!-- starts with mapred.*, not mapredcue.* -->
+  <property>
+    <name>mapred.child.java.opts</name>
+    <value>-Xmx200m -Djava.net.preferIPv4Stack=true</value>
   </property>
 </configuration>

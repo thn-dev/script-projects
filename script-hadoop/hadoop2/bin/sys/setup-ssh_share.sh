@@ -1,11 +1,9 @@
 #!/bin/bash
 
 CWD=$(cd "$(dirname "$0")" && pwd)
-. $CWD/setenv.sh
+. $CWD/yarn-env.sh
 
-while read line
-do
-  HOST_NAME=line
-  echo "copy file to $USER_NAME@$HOSTNAME"
-  ssh-copy-id -i $HOME/.ssh/id_rsa.pub $USER_NAME@$HOST_NAME
-done < $1
+HOST_NAME="$1"
+
+echo -e "copy file to $USER_NAME@$HOSTNAME"
+ssh-copy-id -i $HOME/.ssh/id_rsa.pub $USER_NAME@$HOST_NAME

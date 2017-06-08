@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <configuration>
   <!-- ResourceManager -->
+  <property>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>localhost</value>
+  </property>
 
   <!-- NodeManager -->
   <property>
@@ -9,8 +13,24 @@
   </property>
 
   <property>
+    <name>yarn.nodemanager.local-dirs</name>
+    <value>/data/yarn/local</value>
+  </property>
+
+  <property>
     <name>yarn.nodemanager.aux-services</name>
     <value>mapreduce_shuffle</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+  </property>
+
+  <property>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+    <description>default: false/description>
   </property>
 
   <!-- History Server -->

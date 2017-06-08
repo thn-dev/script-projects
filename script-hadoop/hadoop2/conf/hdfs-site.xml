@@ -13,15 +13,38 @@
     <value>localhost:50070</value>
   </property>
 
-  <!-- DataNode -->
   <property>
-    <name>dfs.datanode.data.dir</name>
-    <value>/data/yarn/dfs/dn</value>
+    <name>dfs.namenode.handler.count</name>
+    <value>10</value>
+    <description>default: 10</description>
   </property>
 
   <property>
-    <name>dfs.datanode.http-address</name>
-    <value>localhost:50075</value>
+    <name>dfs.namenode.fs-limits.min-block-size</name>
+    <value>65536</value>
+    <description>default: 1048576</description>
+  </property>
+
+  <property>
+    <name>dfs.namenode.fs-limits.max-blocks-per-file</name>
+    <value>1048576</value>
+    <description>default: 1048576</description>
+  </property>
+
+  <property>
+    <name>dfs.blocksize</name>
+    <value>65536</value>
+    <description>default: 128MB (use 256MB for large file systems)</description>
+  </property>
+
+  <property>
+    <name>dfs.permissions.superusergroup</name>
+    <value>hadoop</value>
+  </property>
+
+  <property>
+    <name>dfs.replication</name>
+    <value>1</value>
   </property>
 
   <!-- Secondary NameNode -->
@@ -35,19 +58,17 @@
     <value>localhost:50090</value>
   </property>
 
+  <!-- DataNode -->
   <property>
-    <name>dfs.blocksize</name>
-    <value>65536</value>
-    <description>268435456 (256MB) for large file systems</description>
+    <name>dfs.datanode.data.dir</name>
+    <value>/data/yarn/dfs/dn</value>
+    <final>true</final>
   </property>
 
   <property>
-    <name>dfs.permissions.supergroup</name>
-    <value>hadoop</value>
+    <name>dfs.datanode.handler.count</name>
+    <value>10</value>
+    <description>default: 10</description>
   </property>
 
-  <property>
-    <name>dfs.replication</name>
-    <value>1</value>
-  </property>
 </configuration>
