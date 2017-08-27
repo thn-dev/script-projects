@@ -22,7 +22,8 @@ if [ -d "$HADOOP_ORG" ]; then
   # setup data location
   # HADOOP_DATA=$APP_DATA/yarn
   HADOOP_DATA=$HADOOP_DATA
-  mkdir -p $HADOOP_DATA/{logs,pids,local}
+  mkdir -p $HADOOP_DATA/{dfs,mapred,logs,pids,local}
+  mkdir -p $HADOOP_DATA/dfs/{nn,sn,dn}
   mkdir -p $HADOOP_DATA/mapred/{local,temp,system}
 
   chown -R $USER_NAME:$GROUP_NAME $HADOOP_DATA
@@ -37,7 +38,9 @@ if [ ! -d "$USER_BIN" ]; then
 fi
 
 # copy .sh scripts to default user's bin directory
-cp $CWD/../yarn-env.sh $USER_BIN
+cp setup-ssh.sh $USER_BIN
+cp setup-ssh_share.sh $USER_BIN
+cp -R $CWD/../*.sh $USER_BIN
 
 # setup permission
 chown -R $USER_NAME:$GROUP_NAME $USER_BIN

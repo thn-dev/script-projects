@@ -1,1 +1,10 @@
 # script-projects
+- script-accumulo
+- script-ctfs
+- script-db
+- script-elasticsearch
+- script-hadoop
+- script-os
+- script-solr
+- script-spark
+- script-zookeeper

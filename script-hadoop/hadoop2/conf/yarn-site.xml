@@ -5,6 +5,7 @@
     <name>yarn.resourcemanager.hostname</name>
     <value>localhost</value>
   </property>
+<<<<<<< HEAD
 
   <property>
     <name>yarn.resourcemanager.webapp.address</name>
@@ -16,6 +17,8 @@
     <value>true</value>
     <description>default: false</description>
   </property>
+=======
+>>>>>>> 30f044ed7464b29ceed9f8766dc164e14d2ef885
 
   <!-- NodeManager -->
   <property>
@@ -24,8 +27,24 @@
   </property>
 
   <property>
+    <name>yarn.nodemanager.local-dirs</name>
+    <value>/data/yarn/local</value>
+  </property>
+
+  <property>
     <name>yarn.nodemanager.aux-services</name>
     <value>mapreduce_shuffle</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+  </property>
+
+  <property>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+    <description>default: false/description>
   </property>
 
   <!-- History Server -->

@@ -1,8 +1,8 @@
 set ruler
 
-set tabpstop=4
-set softtabpstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 set smartindent
@@ -14,7 +14,7 @@ set number
 set numberwidth=5
 
 " turn on <F2> for pasting
-nnoremap <F2> :set invpast paste?<CR>
-set pasttoggle=<F2>
+" nnoremap <F2> :set invpast paste?<CR>
+" set pasttoggle=<F2>
 
 set showmode

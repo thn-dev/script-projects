@@ -43,8 +43,11 @@ for f in $HADOOP_HOME/contrib/capacity-scheduler/*.jar; do
 done
 
 # The maximum amount of heap to use, in MB. Default is 1000.
-#export HADOOP_HEAPSIZE=
-#export HADOOP_NAMENODE_INIT_HEAPSIZE=""
+export HADOOP_HEAPSIZE="1024"
+export HADOOP_NAMENODE_INIT_HEAPSIZE="1024"
+
+# export HADOOP_LOG_DIR=/data/yarn/logs
+export HADOOP_LOG_DIR=${HADOOP_LOG_DIR}
 
 # Extra Java runtime options.  Empty by default.
 export HADOOP_OPTS="$HADOOP_OPTS -Djava.net.preferIPv4Stack=true"
@@ -93,6 +96,7 @@ export HADOOP_SECURE_DN_LOG_DIR=${HADOOP_LOG_DIR}/${HADOOP_HDFS_USER}
 # NOTE: this should be set to a directory that can only be written to by
 #       the user that will run the hadoop daemons.  Otherwise there is the
 #       potential for a symlink attack.
+# export HADOOP_PID_DIR=/data/yarn/pids
 export HADOOP_PID_DIR=${HADOOP_PID_DIR}
 export HADOOP_SECURE_DN_PID_DIR=${HADOOP_PID_DIR}
 
