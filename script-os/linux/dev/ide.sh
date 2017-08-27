@@ -6,11 +6,19 @@ case "$1" in
     ;;
 
   'eclipse')
-    $HOME/tools/eclipse-luna/eclipse &
+    $HOME/tools/eclipse-neon/eclipse &
+    ;;
+
+  'jb-go')
+    $HOME/tools/jb-go/bin/gogland.sh &
+    ;;
+
+  'jb-java')
+    $HOME/tools/jb-java/bin/idea.sh &
     ;;
 
   *)
-    echo "Usage: $0 {sublime | eclipse}"
+    echo "Usage: $0 {sublime | eclipse | jb-go | jb-java}"
 
 esac
 exit 0

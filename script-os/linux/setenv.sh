@@ -17,4 +17,3 @@ export GOBIN=$GOROOT/bin
 export GOPATH=$HOME/dev.go
 
 export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$MVN_HOME/bin:$GOROOT/bin:$PATH
-
