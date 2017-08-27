@@ -19,11 +19,6 @@
     <value>/data/yarn/dfs/dn</value>
   </property>
 
-  <property>
-    <name>dfs.datanode.http-address</name>
-    <value>localhost:50075</value>
-  </property>
-
   <!-- Secondary NameNode -->
   <property>
     <name>dfs.namenode.checkpoint.dir</name>
@@ -42,7 +37,7 @@
   </property>
 
   <property>
-    <name>dfs.permissions.supergroup</name>
+    <name>dfs.permissions.superusergroup</name>
     <value>hadoop</value>
   </property>
 

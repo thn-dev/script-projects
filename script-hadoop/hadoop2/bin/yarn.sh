@@ -6,6 +6,9 @@ CWD=$(cd "$(dirname "$0")" && pwd)
 HADOOP_PREFIX=$APP_HOME/yarn
 export HADOOP_PREFIX
 
+HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=$HADOOP_PREFIX/lib/native"
+export HADOOP_OPTS
+
 HADOOP_YARN_HOME=$HADOOP_PREFIX
 export HADOOP_YARN_HOME
 
@@ -48,4 +51,3 @@ case "$1" in
         echo "Usage: $0 {start | stop}"
 esac
 exit 0
-

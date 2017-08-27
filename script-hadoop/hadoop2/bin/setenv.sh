@@ -10,10 +10,10 @@ USER_NAME=hduser
 export USER_NAME
 
 # setting for OS X
-#USER_HOME=/Users/$USER_NAME
+USER_HOME=/Users/$USER_NAME
 
 # setting for linux
-USER_HOME=/home/$USER_NAME
+#USER_HOME=/home/$USER_NAME
 export USER_HOME
 
 USER_BIN=$USER_HOME/bin

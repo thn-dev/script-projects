@@ -1,6 +1,21 @@
 <?xml version="1.0"?>
 <configuration>
   <!-- ResourceManager -->
+  <property>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>localhost</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.webapp.address</name>
+    <value>localhost:8088</value>
+  </property>
+
+  <property>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+    <description>default: false</description>
+  </property>
 
   <!-- NodeManager -->
   <property>
