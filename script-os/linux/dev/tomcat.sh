@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ./setenv.sh
+CATALINA_HOME=/opt/tomcat
 
 case "$1" in
   'start')
