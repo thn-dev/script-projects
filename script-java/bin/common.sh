@@ -7,7 +7,7 @@ start() {
 
 case "$1" in
   start)
-    if [! $PID_FILE ]; then
+    if [ -f $PID_FILE ]; then
       PID=`cat $PID_FILE`
       if [ -z "`ps -ef | grep ${PID} | grep -v grep`" ]; then
         start
@@ -30,14 +30,13 @@ case "$1" in
   ;;
 
   stop)
-    if [! $PID_FILE ]; then
+    if [ -f $PID_FILE ]; then
       PID=`cat $PID_FILE`
       if [ -z "`ps -ef | grep ${PID} | grep -v grep`" ]; then
         echo "${SERVICE_NAME} is not running [${PID}]"
         rm -f $PID_FILE
         exit 1
       else
-        #PID=`cat $PID_FILE`
         kill -term $PID
         echo "${SERVICE_NAME} is stopped [${PID}]"
         rm -f $PID_FILE
@@ -50,7 +49,7 @@ case "$1" in
   ;;
 
   status)
-    if [! $PID_FILE ]; then
+    if [ -f $PID_FILE ]; then
       PID=`cat $PID_FILE`
       if [ -z "`ps -ef | grep ${PID} | grep -v grep`" ]; then
         echo "${SERVICE_NAME} is not running [${PID}]"
