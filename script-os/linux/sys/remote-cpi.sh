@@ -1,7 +1,6 @@
 #!/bin/bash
 
-function copy_ex()
-{
+function copy_ex() {
   HOSTS="$1"
   PEM_FILE="$2"
   USER_NAME="$3"

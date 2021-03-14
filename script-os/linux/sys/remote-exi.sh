@@ -1,7 +1,6 @@
 #!/bin/bash
 
-function remote_ex()
-{
+function remote_ex() {
   HOSTS="$1"
   PEM_FILE="$2"
   USER_NAME="$3"

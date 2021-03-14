@@ -12,52 +12,52 @@ function s3_list() {
 }
 
 function s3_delete_regions() {
-    STAGE=$1
-    PARTY_ID=$2
-    TYPE=$3
-    shift
-    shift
-    shift
-    REGIONS=("$@")
+  STAGE=$1
+  PARTY_ID=$2
+  TYPE=$3
+  shift
+  shift
+  shift
+  REGIONS=("$@")
 
-    for REGION in ${REGIONS[@]}; do
-        s3_delete ${STAGE} ${PARTY_ID} ${TYPE} ${REGION}
-    done
+  for REGION in ${REGIONS[@]}; do
+      s3_delete ${STAGE} ${PARTY_ID} ${TYPE} ${REGION}
+  done
 }
 
 function s3_delete() {
-    PREFIX=$1
-    REGION=$2
+  PREFIX=$1
+  REGION=$2
 
-    BUCKET_NAME="${PREFIX}-${REGION}"
-    echo "bucket: ${BUCKET_NAME}"
-    echo
+  BUCKET_NAME="${PREFIX}-${REGION}"
+  echo "bucket: ${BUCKET_NAME}"
+  echo
 
-    aws s3api delete-bucket --bucket ${BUCKET_NAME} \
-        --region ${REGION}
+  aws s3api delete-bucket --bucket ${BUCKET_NAME} \
+      --region ${REGION}
 }
 
 function s3_create_regions() {
-    PREFIX=$1
-    shift
-    REGIONS=("$@")
+  PREFIX=$1
+  shift
+  REGIONS=("$@")
 
-    for REGION in ${REGIONS[@]}; do
-        echo "# creating: ${PREFIX}-${REGION}"
-        s3_create ${PREFIX} ${REGION}
-    done
+  for REGION in ${REGIONS[@]}; do
+      echo "# creating: ${PREFIX}-${REGION}"
+      s3_create ${PREFIX} ${REGION}
+  done
 }
 
 function s3_create() {
-    PREFIX=$1
-    REGION=$2
+  PREFIX=$1
+  REGION=$2
 
-    BUCKET_NAME="${PREFIX}-${REGION}"
-    echo "- bucket: ${BUCKET_NAME}"
+  BUCKET_NAME="${PREFIX}-${REGION}"
+  echo "- bucket: ${BUCKET_NAME}"
 
-    aws s3api create-bucket --bucket ${BUCKET_NAME} \
-        --region ${REGION} \
-        --create-bucket-configuration LocationConstraint=${REGION}
+  aws s3api create-bucket --bucket ${BUCKET_NAME} \
+      --region ${REGION} \
+      --create-bucket-configuration LocationConstraint=${REGION}
 }
 
 case "$1" in
