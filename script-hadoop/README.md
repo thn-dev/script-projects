@@ -1,18 +1,18 @@
 This project contains script and configuration files for setting up a stand-alone or single node Hadoop Cluster for development and testing.
 
 # References
-- All versions [Documentation](https://hadoop.apache.org/docs/stable/index.html)
+- All [Versions](http://hadoop.apache.org/docs/)
 
 - Hadoop r3.x "current" [Documentation](http://hadoop.apache.org/docs/current/) | [Single-Node Setup](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html) | [Cluster Setup](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/ClusterSetup.html)
 
-- Hadoop r2.10.1 [Documentation] http://hadoop.apache.org/docs/r2.10.1/) | [Single-Node Setup](http://hadoop.apache.org/docs/r2.10.1/hadoop-project-dist/hadoop-common/SingleCluster.html) | [Cluster Setup](http://hadoop.apache.org/docs/r2.10.1/hadoop-project-dist/hadoop-common/ClusterSetup.html)
+- Hadoop r2.10.1 [Documentation](http://hadoop.apache.org/docs/r2.10.1/) | [Single-Node Setup](http://hadoop.apache.org/docs/r2.10.1/hadoop-project-dist/hadoop-common/SingleCluster.html) | [Cluster Setup](http://hadoop.apache.org/docs/r2.10.1/hadoop-project-dist/hadoop-common/ClusterSetup.html)
 
 - Hadoop r1.2.1 [Documentation](http://hadoop.apache.org/docs/r1.2.1/) | [Single-Node Setup](http://hadoop.apache.org/docs/r1.2.1/single_node_setup.html) | [Cluster Setup](http://hadoop.apache.org/docs/r1.2.1/cluster_setup.html)
 
-- Michael G. Knoll [Running Hadoop on Ubuntu Linux (Single-Node Cluster)]
+- Michael G. Knoll - Running Hadoop on Ubuntu Linux (Single-Node Cluster)
 (http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/)
 
-- Michael G. Knoll [Running Hadoop on Ubuntu Linux (Multi-Node Cluster)]
+- Michael G. Knoll - Running Hadoop on Ubuntu Linux (Multi-Node Cluster)
 (http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-multi-node-cluster/)
 
 - 20 Notable Difference Between Hadoop 2.x vs Hadoop 3.x
