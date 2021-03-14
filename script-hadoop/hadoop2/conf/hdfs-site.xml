@@ -37,8 +37,6 @@
     <description>default: 128MB (use 256MB for large file systems)</description>
   </property>
 
-<<<<<<< HEAD
-=======
   <property>
     <name>dfs.permissions.superusergroup</name>
     <value>hadoop</value>
@@ -49,7 +47,6 @@
     <value>1</value>
   </property>
 
->>>>>>> 30f044ed7464b29ceed9f8766dc164e14d2ef885
   <!-- Secondary NameNode -->
   <property>
     <name>dfs.namenode.checkpoint.dir</name>
@@ -69,14 +66,8 @@
   </property>
 
   <property>
-<<<<<<< HEAD
-    <name>dfs.permissions.superusergroup</name>
-    <value>hadoop</value>
-=======
     <name>dfs.datanode.handler.count</name>
     <value>10</value>
     <description>default: 10</description>
->>>>>>> 30f044ed7464b29ceed9f8766dc164e14d2ef885
   </property>
-
 </configuration>

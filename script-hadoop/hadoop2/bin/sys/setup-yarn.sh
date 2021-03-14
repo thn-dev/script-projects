@@ -20,8 +20,7 @@ if [ -d "$HADOOP_ORG" ]; then
   cp -R $CWD/../../conf/* $HADOOP_CFG
 
   # setup data location
-  # HADOOP_DATA=$APP_DATA/yarn
-  HADOOP_DATA=$HADOOP_DATA
+  HADOOP_DATA=$APP_DATA/yarn
   mkdir -p $HADOOP_DATA/{logs,pids,local}
   mkdir -p $HADOOP_DATA/mapred/{local,temp,system}
 
