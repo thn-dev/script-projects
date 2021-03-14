@@ -4,26 +4,26 @@
 
 # assumptions
 - MYSQL database server is installed at c:\database\mysql
-  If not, adjust the database path in dbmysql.cmd
+  If not, adjust the database path in db-mysql.cmd
 
 # start
 Launch the DOS windows or console window, at the prompt:
 
 # set up environmental variables and system path for mysql
-dbmysql.cmd <enter>
+db-mysql.cmd <enter>
 
 # install mysql as a windows service
 # for windows 7, launch the console as admin first
-dbmysql.cmd service.install
+db-mysql.cmd service.install
 
 # uninstall mysql windows service
-dbmysql.cmd service.uninstall
+db-mysql.cmd service.uninstall
 
 # start mysql windows service
-dbmysql.cmd service.start
+db-mysql.cmd service.start
 
 # stop mysql windows service
-dbmysql.cmd service.stop
+db-mysql.cmd service.stop
 
 #-------------------------------------------------------------------------------
 # local admin account
